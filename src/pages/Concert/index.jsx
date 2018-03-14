@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import RForm from '../../sections/RForm'
+
 class Concert extends Component {
 	render() {
     return(
-      <div>
-        Concert
-      </div>
+      <RForm>
+      </RForm>
 	  )
 	};  
 }
