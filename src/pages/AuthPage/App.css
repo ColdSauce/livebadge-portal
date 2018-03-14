@@ -1,28 +1,39 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+.background {
+	width: 100vw;
+	height: 100vh;
+	background-color: #FFFFFF;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.app {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.facebookButton {
+	border: 0;
+	width: 300px;
+	height: 50px;
+	background-color: #4267B2;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
 }
 
-.App-title {
-  font-size: 1.5em;
+.iconFace {
+	padding-bottom: 3px;
 }
 
-.App-intro {
-  font-size: large;
+h2 {
+  font-size: 50px;
+  font-weight: 700;
+  color: #6c5ce7;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.smallfont {
+	font-weight: 300;
 }

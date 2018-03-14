@@ -28,6 +28,7 @@ const App = () => (
 		<div>
 			<div>
 				<Route exact path="/" component={AuthPage} />
+				<Route exact path="/app" component={Home} />
 				<Route exact path="/social" component={Social} />
 				<Route exact path="/manage" component={EventManagement} />
 				<Route exact path="/addPromotion" component={Promotion} />

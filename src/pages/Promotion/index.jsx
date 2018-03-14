@@ -8,7 +8,7 @@ class Promotion extends Component {
 	render() {
     return(
       <div>
-      	<a href="/"><FontAwesome.FaArrowLeft className="back"/></a>
+      	<a href="/app"><FontAwesome.FaArrowLeft className="back"/></a>
         <PromoForm>
         </PromoForm>
       </div>

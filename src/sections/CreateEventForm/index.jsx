@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone'
 import { uploadImage } from '../../utils/Mixtape';
 import './App.css';
+import * as FontAwesome from 'react-icons/lib/fa';
 
 export default class CreateEventForm extends Component {
   constructor(props) {
@@ -50,31 +51,35 @@ export default class CreateEventForm extends Component {
       });
 
     event.preventDefault();
+    window.location = ("/app");
   }
 
   render() {
     return (
-      <div>
-        <span> Name </span>
-        <input type="text" value={this.state.eventName} onChange={this.handleNameChange} />
+      <div className="parent">
+        <input className="text" type="text" placeholder="Event Name" value={this.state.eventName} onChange={this.handleNameChange} />
+        <br />
+        <h1>{this.state.badgeData == "" ? 'Badge Graphic' : 'Upload Sucessful'}</h1>
         <Dropzone
           id="badge"
           className="dropZone"
           activeClassName="dropZoneActive"
           onDrop={this.onDropBadge}
         >
+          <FontAwesome.FaDownload className="download"/>
         </Dropzone>
-        <img src={this.state.badgeData}/>
+        <br />
+        <h1>{this.state.eventLogoData == "" ? 'Event Logo' : 'Upload Sucessful'}</h1>
         <Dropzone
           id="eventLogo"
           className="dropZone"
           activeClassName="dropZoneActive"
           onDrop={this.onDropLogo}
         >
+          <FontAwesome.FaDownload className="download"/>
         </Dropzone>
-
-        <img src={this.state.eventLogoData}/>
-        <button onClick={this.handleSubmit}> Create </button>
+        <br /><br />
+        <button className="button" onClick={this.handleSubmit}> Create </button>
       </div>
     );
   }
