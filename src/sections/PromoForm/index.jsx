@@ -10,7 +10,8 @@ export default class PromoForm extends Component {
       description: "",
       rarity: "",
       qrCode: "",
-      modelBlob: ""
+      modelBlob: "",
+      mtlBlob: ""
     };
 
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -18,11 +19,19 @@ export default class PromoForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onDrop = acceptedFiles => {
+  onDropModel = acceptedFiles => {
     console.log(acceptedFiles[0].preview)
     this.setState({
       ...this.state,
       modelBlob: acceptedFiles[0].preview
+    });
+  };
+
+  onDropMtl = acceptedFiles => {
+    console.log(acceptedFiles[0].preview)
+    this.setState({
+      ...this.state,
+      mtlBlob: acceptedFiles[0].preview
     });
   };
 
@@ -53,19 +62,28 @@ export default class PromoForm extends Component {
   render() {
     return (
       <div className="parent">
-        {this.state.modelBlob &&
+        {this.state.modelBlob && this.state.mtlBlob &&
         <Scene daeModel={this.state.modelBlob}>
         </Scene>
         }
         <form onSubmit={this.handleSubmit}>
         
           <Dropzone
-          id="eventLogo"
+          id="modelZone"
           className="dropZone"
           activeClassName="dropZoneActive"
-          onDrop={this.onDrop}
+          onDrop={this.onDropModel}
           >
           </Dropzone>
+
+          <Dropzone
+          id="mtlZone"
+          className="dropZone"
+          activeClassName="dropZoneActive"
+          onDrop={this.onDropMtl}
+          >
+          </Dropzone>
+
           <input className="text" placeholder="Description" type="text" value={this.state.location} onChange={this.handleDescriptionChange} />
           <br/><br/>
           <input className="text" placeholder="Rarity" type="text" value={this.state.name} onChange={this.handleRarityChange} />

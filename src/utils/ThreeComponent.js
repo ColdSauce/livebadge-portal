@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import OBJLoader from 'three-obj-loader';
+import MTLLoader from 'three-mtl-loader';
 OBJLoader(THREE);
+MTLLoader(THREE);
 
 
 // Please stop what you're doing and never look at this code.
@@ -61,8 +63,6 @@ class Scene extends Component {
    }
 	}
 
-
-
   componentDidMount() {
     this.THREE = THREE;
     const loader = new this.THREE.OBJLoader();
@@ -100,23 +100,26 @@ class Scene extends Component {
     scene.add(fillLight);
     scene.add(backLight);
 
-    var gridHelper = new THREE.GridHelper( 10, 20 );
-    scene.add(gridHelper);
-    camera.lookAt(0, 0, 0)
 		var ran = this.fitCameraToObject;
 
-    this.mount.appendChild(this.renderer.domElement)
-		loader.load(this.props.daeModel, function ( obj ) {
-      obj.material = new THREE.MeshPhongMaterial({
-        color: '#eaeaea',
-        shininess: 80
-      });
-      obj.name = "dyno";
-      console.log(obj);
-			scene.add( obj );
 
-			ran(camera, obj);
-		});
+    this.mount.appendChild(this.renderer.domElement)
+
+    var mtlLoader = new MTLLoader();
+    mtlLoader.load(this.props.mtlModel, (mtl) => {
+      loader.setMaterials(mtl);
+      loader.load(this.props.daeModel, function ( obj ) {
+        obj.material = new THREE.MeshPhongMaterial({
+          color: '#eaeaea',
+          shininess: 80
+        });
+        obj.name = "dyno";
+        scene.add( obj );
+
+        ran(camera, obj);
+        });
+    });
+		
 		this.start()
   }
 
@@ -152,7 +155,7 @@ class Scene extends Component {
   render() {
     return (
       <div
-        style={{ width: '400px', height: '400px' }}
+        style={{ width: '600px', height: '600px' }}
         ref={(mount) => { this.mount = mount }}
       />
     )
