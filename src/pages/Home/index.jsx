@@ -12,7 +12,7 @@ class Home extends Component {
 	render() {
     return(
     	<div className="">
-	    	<a href="/"><FontAwesome.FaCog className="cog"/></a>
+	    	<a href="/app"><FontAwesome.FaCog className="cog"/></a>
 		    <div className="app">
 		        <div className="container">
 					<a href="manage"><div className="box" id='topleft'>

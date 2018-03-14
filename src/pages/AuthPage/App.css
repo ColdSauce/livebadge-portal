@@ -3,7 +3,7 @@
 .background {
 	width: 100vw;
 	height: 100vh;
-	background-color: #FFFFFF;
+	background-color: #f5f6fa;
 }
 
 .app {
@@ -11,27 +11,37 @@
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+    text-align: center;
 }
 
 .facebookButton {
 	border: 0;
-	width: 300px;
+	width: 100vw;
 	height: 50px;
 	background-color: #4267B2;
 	color: #FFFFFF;
 	font-size: 18px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
+	cursor: pointer;
 }
 
 .iconFace {
 	padding-bottom: 3px;
 }
 
-h2 {
-  font-size: 50px;
-  font-weight: 700;
-  color: #6c5ce7;
+
+.tagline {
+	font-size: 25px;
+	font-weight: 400;
+	color: #1C42FA;
+	font-family: 'Lato', sans-serif;
+}
+
+.footer {
+	position: fixed;
+	top: 100%;
+	transform: translateX(0) translateY(-100%);
 }
 
 .smallfont {

@@ -25,9 +25,12 @@ export default class AuthPage extends Component {
     return(
       <div className="background">
   	    <div className="app">
-          <h2>LiveBadge <span className="smallfont">Event Portal</span></h2>
-          <button className="facebookButton" onClick={this.loginWithFb}> <FontAwesome.FaFacebook className="iconFace"/> Login With Facebook </button>
+          <img src={logo} />
+          <p className="tagline">Create your own collectables to make any event more special</p>
   	    </div>
+        <div className="footer">
+          <button className="facebookButton" onClick={this.loginWithFb}> <FontAwesome.FaFacebook className="iconFace"/> Login With Facebook </button>
+        </div>
       </div>
 	  )
 	};
