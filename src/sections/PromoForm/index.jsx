@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone'
 import ColladaLoader from 'three-collada-loader';
 import Scene from '../../utils/ThreeComponent';
 import * as FontAwesome from 'react-icons/lib/fa';
+import { addPromo, uploadImage } from '../../utils/Mixtape'
 
 export default class PromoForm extends Component {
   constructor(props) {
@@ -56,8 +57,13 @@ export default class PromoForm extends Component {
 
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.rarity + ", " + this.state.description);
+    
+    // export function addPromo(eventId, rarity, description, modelKey) {
+    uploadImage(this.state.modelBlob, "modelBlob" + window.eventId)
+    uploadImage(this.state.mtlBlob, "mtlBlob" + window.eventId)
+    addPromo(window.eventId, this.state.rarity, this.state.description)
     event.preventDefault();
+
   }
   
   render() {

@@ -31,10 +31,21 @@ export function getAuthenticatedUser() {
   return firebase.auth().currentUser;
 }
 
-export function addConcert(userId, name, description) {
+export function addPromo(eventId, rarity, description) {
   var user = firebase.auth().currentUser;
   if(user) {
-    const newConcert = firebase.database().ref('users/' + user.uid).child('concerts').push();
+    const newPromo = firebase.database().ref('events/' + eventId).child('promos').push();
+    newPromo.set({
+      description,
+      rarity,
+    });
+  }
+}
+
+export function addConcert(userId, eventId, name, description) {
+  var user = firebase.auth().currentUser;
+  if(user) {
+    const newConcert = firebase.database().ref('users/' + user.uid).child('event/' + eventId).push();
     newConcert.set({
       name,
       description
