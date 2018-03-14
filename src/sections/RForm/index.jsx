@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { addConcert } from '../../utils/Mixtape';
+import './App.css';
 
 export default class ConcertForm extends Component {
   constructor(props) {
@@ -40,18 +41,15 @@ export default class ConcertForm extends Component {
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.name} onChange={this.handleNameChange} />
-        </label>
-        <label>
-          Location:
-          <input type="text" value={this.state.location} onChange={this.handleLocationChange} />
-        </label>
-
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="parent">
+        <form onSubmit={this.handleSubmit}>
+          <input className="text" placeholder="Name" type="text" value={this.state.name} onChange={this.handleNameChange} />
+          <br/><br/>
+          <input className="text" placeholder="Location" type="text" value={this.state.location} onChange={this.handleLocationChange} />
+          <br/><br/>
+          <input className="button" type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 

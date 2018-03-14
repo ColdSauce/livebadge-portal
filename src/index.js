@@ -34,7 +34,6 @@ const App = () => (
 				<Route exact path="/addConcert" component={Concert} />
 				<Route exact path="/createEvent" component={CreateEvent} />
 			</div>
-			<Footer />
 		</div>
 	</Router>
 );
