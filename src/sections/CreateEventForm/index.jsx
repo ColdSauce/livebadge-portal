@@ -10,7 +10,8 @@ export default class CreateEventForm extends Component {
     this.state = {
       badgeData: "",
       eventLogoData: "",
-      eventName: ""
+      eventName: "",
+      submitText: "Create"
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -42,7 +43,12 @@ export default class CreateEventForm extends Component {
       .then(res => res.blob()) // Gets the response and returns it as a blob
       .then(blob => {
         uploadImage(blob, this.state.eventName + "LOGO");
+        this.setState({
+          ...this.state,
+          submitText: "Created!"
+        });
       });
+    window.eventId = this.state.eventName;
 
     event.preventDefault();
     window.location = ("/app");
@@ -73,7 +79,7 @@ export default class CreateEventForm extends Component {
           <FontAwesome.FaDownload className="download"/>
         </Dropzone>
         <br /><br />
-        <button className="button" onClick={this.handleSubmit}> Create </button>
+        <button className="button" onClick={this.handleSubmit}> {this.state.submitText} </button>
       </div>
     );
   }

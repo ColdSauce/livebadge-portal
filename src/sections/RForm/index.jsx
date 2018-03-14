@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addConcert } from '../../utils/Mixtape';
+import { addConcert, getAuthenticatedUser } from '../../utils/Mixtape';
 import './App.css';
 
 export default class ConcertForm extends Component {
@@ -7,7 +7,8 @@ export default class ConcertForm extends Component {
     super(props);
     this.state = {
       name: "",
-      location: ""
+      location: "",
+      submitText: "Submit"
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -35,7 +36,16 @@ export default class ConcertForm extends Component {
 
 
   handleSubmit(event) {
-    addConcert("32", this.state.name, this.state.location);
+    const user = getAuthenticatedUser()
+    if (user) {
+      addConcert(user.uid, window.eventId, this.state.name, this.state.location);
+      this.setState({
+        ...this.state,
+        submitText: "Submitted!",
+        name: "",
+        location: ""
+      });
+    }
     event.preventDefault();
   }
   
@@ -47,7 +57,7 @@ export default class ConcertForm extends Component {
           <br/><br/>
           <input className="text" placeholder="Location" type="text" value={this.state.location} onChange={this.handleLocationChange} />
           <br/><br/>
-          <input className="button" type="submit" value="Submit" />
+          <input className="button" type="submit" value={this.state.submitText} />
         </form>
       </div>
     );
