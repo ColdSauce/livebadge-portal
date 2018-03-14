@@ -27,6 +27,16 @@ export function uploadImage(blob, name) {
   });
 }
 
+export function getUserSnapshot() {
+  const user = firebase.auth().currentUser;
+  if (!user) {
+    return
+  }
+  firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+      console.log(snapshot.val());
+  });
+}
+
 export function getAuthenticatedUser() {
   return firebase.auth().currentUser;
 }
