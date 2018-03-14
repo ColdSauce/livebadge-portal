@@ -1,0 +1,13 @@
+.dropZone {
+  background-color: #ecf0f1;
+  padding: 100px;
+}
+
+.dropZone:hover {
+  cursor: pointer;
+}
+
+.dropZoneActive {
+  background-color: #bdc3c7;
+  padding: 100px;
+}

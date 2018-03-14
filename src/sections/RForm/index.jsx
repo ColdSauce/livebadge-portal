@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addConcert } from '../../utils/Mixtape';
 
 export default class ConcertForm extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export default class ConcertForm extends Component {
 
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.name + ", " + this.state.location);
+    addConcert("32", this.state.name, this.state.location);
     event.preventDefault();
   }
   
