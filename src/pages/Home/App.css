@@ -1,28 +1,81 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+.container {
+  width:980px;
+  height:700px;
+  margin:0 auto;
+  position:relative;
+  top:20px;
+}
+
+.cog {
+  top: 30px;
+  left: 90%;
+  font-size: 70px;
+  position: absolute;
+  color: #FFFFFF;
+  text-shadow: 0 2px 20px rgba(0,0,0,.25);
+  transition: .25s ease;
+}
+
+.cog:hover {
+  -webkit-text-shadow: 0 10px 20px rgba(0,0,0,.25);
+  text-shadow: 0 10px 20px rgba(0,0,0,.25);
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px)
+}
+
+.box {
+  position:absolute;
+  margin:0 auto;
+  top:50%;
+  left:50%;
+  width:300px;
+  height:300px;
+  border-radius: 15px;
+  background: #ffffff;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;  
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 20px rgba(0,0,0,.25);
+  transition: .25s ease;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.box:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px)
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+a {
+  text-decoration: none;
+  font-size: 34px;
   color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  color: #6c5ce7;
 }
 
-.App-title {
-  font-size: 1.5em;
+#topleft{
+  margin-top:-310px;
+  margin-left:-310px;
 }
-
-.App-intro {
-  font-size: large;
+#topright{
+  margin-top:-310px;
+  margin-left:30px;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#bottomleft{
+  margin-top:30px;
+  margin-left:30px;
+}
+#bottomright{
+  margin-top:30px;
+  margin-left:-310px;
 }
