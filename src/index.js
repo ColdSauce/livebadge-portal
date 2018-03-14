@@ -9,6 +9,10 @@ import {
 } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Social from './pages/Social';
+import Concert from './pages/Concert';
+import EventManagement from './pages/EventManagement';
+import Promotion from './pages/Promotion';
 
 // Global sections:
 import Header from "./sections/Header";
@@ -23,6 +27,10 @@ const App = () => (
 		<div>
 			<div>
 				<Route exact path="/" component={Home} />
+				<Route exact path="/social" component={Social} />
+				<Route exact path="/manage" component={EventManagement} />
+				<Route exact path="/addPromotion" component={Promotion} />
+				<Route exact path="/addConcert" component={Concert} />
 			</div>
 			<Footer />
 		</div>
