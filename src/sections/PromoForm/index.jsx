@@ -40,18 +40,15 @@ export default class PromoForm extends Component {
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Description:
-          <input type="text" value={this.state.location} onChange={this.handleDescriptionChange} />
-        </label>
-        <label>
-          Rarity:
-          <input type="text" value={this.state.name} onChange={this.handleRarityChange} />
-        </label>
-
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="parent">
+        <form onSubmit={this.handleSubmit}>
+          <input className="text" placeholder="Description" type="text" value={this.state.location} onChange={this.handleDescriptionChange} />
+          <br/><br/>
+          <input className="text" placeholder="Rarity" type="text" value={this.state.name} onChange={this.handleRarityChange} />
+          <br/><br/>
+          <input className="button" type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 

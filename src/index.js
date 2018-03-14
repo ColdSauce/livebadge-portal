@@ -32,7 +32,6 @@ const App = () => (
 				<Route exact path="/addPromotion" component={Promotion} />
 				<Route exact path="/addConcert" component={Concert} />
 			</div>
-			<Footer />
 		</div>
 	</Router>
 );

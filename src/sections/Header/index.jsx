@@ -45,14 +45,7 @@ export default class Header extends React.Component {
 		return (
 			<StyledHeader>
 				<StyledNav>
-					<StyledLink exact to="/" activeClassName="active">
-            Home
-					</StyledLink>
-					{this.props.routes.map(({name, path}, i) =>
-  					<StyledLink exact to={path} activeClassName="active" key={i}>
-							{name}
-  					</StyledLink>
-					)}
+	
 				</StyledNav>
 			</StyledHeader>
 		);
