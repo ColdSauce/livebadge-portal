@@ -50,3 +50,22 @@
 	-ms-transform: translateY(-3px);
 	transform: translateY(-3px)
 }
+
+.dropZone {
+    background-color: #6c5ce7;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #fff;
+    border-width: 3px;
+    padding: 30px;
+    width: 360px;
+    text-align: center;
+}
+
+.dropZone:hover {
+    cursor: pointer;
+}
+
+.dropZoneActive {
+  background-color: #bdc3c7;
+}

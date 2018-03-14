@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone'
 import ColladaLoader from 'three-collada-loader';
 import Scene from '../../utils/ThreeComponent';
+import * as FontAwesome from 'react-icons/lib/fa';
 
 export default class PromoForm extends Component {
   constructor(props) {
@@ -67,21 +68,23 @@ export default class PromoForm extends Component {
         </Scene>
         }
         <form onSubmit={this.handleSubmit}>
-        
+          <h1>Drop OBJ</h1>
           <Dropzone
           id="modelZone"
           className="dropZone"
           activeClassName="dropZoneActive"
           onDrop={this.onDropModel}
           >
+            <FontAwesome.FaDownload className="download"/>
           </Dropzone>
-
+          <h1>Drop MTL</h1>
           <Dropzone
           id="mtlZone"
           className="dropZone"
           activeClassName="dropZoneActive"
           onDrop={this.onDropMtl}
           >
+            <FontAwesome.FaDownload className="download"/>
           </Dropzone>
 
           <input className="text" placeholder="Description" type="text" value={this.state.location} onChange={this.handleDescriptionChange} />
