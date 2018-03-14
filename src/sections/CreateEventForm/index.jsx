@@ -37,12 +37,6 @@ export default class CreateEventForm extends Component {
 
   handleSubmit(event) {
     console.log(this.state.badgeData);
-    fetch(this.state.badgeData)
-      .then(res => res.blob()) // Gets the response and returns it as a blob
-      .then(blob => {
-        uploadImage(blob, this.state.eventName + "BADGE");
-      });
-
     fetch(this.state.eventLogoData)
       .then(res => res.blob()) // Gets the response and returns it as a blob
       .then(blob => {

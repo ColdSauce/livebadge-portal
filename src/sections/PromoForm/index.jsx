@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Dropzone from 'react-dropzone'
+import ColladaLoader from 'three-collada-loader';
+import Scene from '../../utils/ThreeComponent';
 
 export default class PromoForm extends Component {
   constructor(props) {
@@ -6,13 +9,22 @@ export default class PromoForm extends Component {
     this.state = {
       description: "",
       rarity: "",
-      qrCode: ""
+      qrCode: "",
+      modelBlob: ""
     };
 
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleRarityChange = this.handleRarityChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  onDrop = acceptedFiles => {
+    console.log(acceptedFiles[0].preview)
+    this.setState({
+      ...this.state,
+      modelBlob: acceptedFiles[0].preview
+    });
+  };
 
   handleDescriptionChange(event) {
     this.setState(
@@ -41,7 +53,19 @@ export default class PromoForm extends Component {
   render() {
     return (
       <div className="parent">
+        {this.state.modelBlob &&
+        <Scene daeModel={this.state.modelBlob}>
+        </Scene>
+        }
         <form onSubmit={this.handleSubmit}>
+        
+          <Dropzone
+          id="eventLogo"
+          className="dropZone"
+          activeClassName="dropZoneActive"
+          onDrop={this.onDrop}
+          >
+          </Dropzone>
           <input className="text" placeholder="Description" type="text" value={this.state.location} onChange={this.handleDescriptionChange} />
           <br/><br/>
           <input className="text" placeholder="Rarity" type="text" value={this.state.name} onChange={this.handleRarityChange} />
